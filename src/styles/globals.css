@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply font-sans text-neutral-800 bg-hueneu-secondary;
+    font-feature-settings: 'kern';
+  }
+
+  /* Custom scrollbar for a more branded/minimal feel (optional) */
+  /* Works in WebKit-based browsers (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-hueneu-secondary;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-neutral-400 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-neutral-500;
+  }
+
+  /* For Firefox */
+  /* Note: Firefox scrollbar styling is more limited */
+  /* For more advanced Firefox scrollbar styling, consider newer CSS properties if widely supported or JS solutions */
+  /* For now, this provides basic color theming */
+  html {
+    scrollbar-width: thin; /* "auto" or "thin" */
+    scrollbar-color: theme('colors.neutral.400') theme('colors.hueneu-secondary'); /* thumb and track */
+  }
+
+  ::selection {
+    @apply bg-hueneu-accent text-white;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl; /* Default max width for containers */
+  }
+}
+
+/* Ensure fonts defined in tailwind.config.js are available */
+/* This is usually handled by _document.js or _app.js font imports */
