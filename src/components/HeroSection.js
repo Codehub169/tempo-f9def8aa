@@ -1,8 +1,7 @@
 // HeroSection component for the hueneu website
 // Path: src/components/HeroSection.js
 import AnimatedLogo from './AnimatedLogo';
-// The ScrollIndicator component will be imported and used once created in a future batch.
-// import ScrollIndicator from './ScrollIndicator'; 
+import ScrollIndicator from './ScrollIndicator'; 
 
 const HeroSection = () => {
   return (
@@ -33,12 +32,7 @@ const HeroSection = () => {
         Designs that whisper loud stories.
       </p>
 
-      {/* Placeholder comment for ScrollIndicator integration */}
-      {/* The ScrollIndicator component will be placed here. Example structure:
-      <div className="absolute bottom-8 sm:bottom-10 left-1/2 transform -translate-x-1/2">
-        <ScrollIndicator />
-      </div>
-      */}
+      <ScrollIndicator />
     </section>
   );
 };
