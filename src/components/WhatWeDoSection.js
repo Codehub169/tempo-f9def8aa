@@ -79,13 +79,16 @@ const WhatWeDoSection = () => {
                 <Image src={service.icon} alt={`${service.title} icon`} width={28} height={28} className="opacity-80 group-hover:opacity-100 transition-opacity" />
               </div>
               <h3 className="font-display text-2xl font-semibold text-hueneu-primary mb-3 tracking-tight">{service.title}</h3>
-              <p className="font-sans text-neutral-600 text-base leading-relaxed mb-4 flex-grow">{service.description}</p>
+              <p className="font-sans text-hueneu-secondary-text text-base leading-relaxed mb-4 flex-grow">{service.description}</p>
               <a 
                 href="#contact" 
-                className="font-sans text-sm font-medium text-hueneu-accent hover:text-red-700 transition-colors duration-300 self-start inline-flex items-center group/link"
+                className="font-sans text-sm font-medium text-hueneu-accent hover:underline transition-colors duration-300 self-start inline-flex items-center group/link mt-auto"
                 onClick={(e) => {
                     e.preventDefault();
-                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                    const contactElement = document.getElementById('contact');
+                    if (contactElement) {
+                      contactElement.scrollIntoView({ behavior: 'smooth' });
+                    }
                 }}
               >
                 Discuss Project

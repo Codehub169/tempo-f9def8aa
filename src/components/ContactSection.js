@@ -47,7 +47,7 @@ const ContactSection = () => {
         setSubmissionStatus('success');
         setFormData({ name: '', email: '', message: '' });
       } else {
-        const errorData = await response.json();
+        const errorData = await response.json().catch(() => ({ message: 'Failed to parse error response.' }));
         setSubmissionStatus('error');
         console.error('Submission error:', errorData.message || 'Failed to send message.');
       }
@@ -59,7 +59,7 @@ const ContactSection = () => {
   };
 
   const inputClass = (hasError) => 
-    `w-full p-3 bg-hueneu-secondary border rounded-md focus:ring-2 focus:ring-hueneu-accent focus:border-hueneu-accent outline-none transition-colors duration-300 placeholder-neutral-500 text-neutral-700 ${hasError ? 'border-red-500' : 'border-neutral-300'}`;
+    `w-full p-3 bg-white border rounded-md focus:ring-2 focus:ring-hueneu-accent focus:border-hueneu-accent outline-none transition-colors duration-300 placeholder-hueneu-primary/60 text-hueneu-dark-text ${hasError ? 'border-hueneu-error' : 'border-hueneu-primary/40'}`;
 
   return (
     <section id="contact" className="py-20 md:py-32 bg-hueneu-secondary">
@@ -71,7 +71,7 @@ const ContactSection = () => {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
         >
-          Let’s Work Together
+          Let&apos;s Work Together
         </motion.h2>
 
         <motion.div 
@@ -86,19 +86,19 @@ const ContactSection = () => {
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-neutral-600 mb-1">Your Name</label>
-              <input type="text" name="name" id="name" value={formData.name} onChange={handleChange} className={inputClass(errors.name)} placeholder="What should we call you?" />
-              {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
+              <label htmlFor="name" className="block text-sm font-medium text-hueneu-secondary-text mb-1">Your Name</label>
+              <input type="text" name="name" id="name" value={formData.name} onChange={handleChange} className={inputClass(errors.name)} placeholder="What should we call you?" autoComplete="name" />
+              {errors.name && <p className="text-hueneu-error text-xs mt-1">{errors.name}</p>}
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-neutral-600 mb-1">Your Email</label>
-              <input type="email" name="email" id="email" value={formData.email} onChange={handleChange} className={inputClass(errors.email)} placeholder="Where can we reach you?" />
-              {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+              <label htmlFor="email" className="block text-sm font-medium text-hueneu-secondary-text mb-1">Your Email</label>
+              <input type="email" name="email" id="email" value={formData.email} onChange={handleChange} className={inputClass(errors.email)} placeholder="Where can we reach you?" autoComplete="email" />
+              {errors.email && <p className="text-hueneu-error text-xs mt-1">{errors.email}</p>}
             </div>
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-neutral-600 mb-1">Your Story (or project idea!)</label>
+              <label htmlFor="message" className="block text-sm font-medium text-hueneu-secondary-text mb-1">Your Story (or project idea!)</label>
               <textarea name="message" id="message" rows="5" value={formData.message} onChange={handleChange} className={inputClass(errors.message)} placeholder="Tell us about your vision..."></textarea>
-              {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
+              {errors.message && <p className="text-hueneu-error text-xs mt-1">{errors.message}</p>}
             </div>
             
             <div className="text-center">
@@ -118,7 +118,7 @@ const ContactSection = () => {
                   </>
                 ) : (
                   <>
-                    Let’s design your story <Send className="w-5 h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1" />
+                    Let&apos;s design your story <Send className="w-5 h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1" />
                   </>
                 )}
               </button>
@@ -128,15 +128,15 @@ const ContactSection = () => {
           {submissionStatus === 'success' && (
             <motion.div 
               initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-              className="mt-6 p-4 bg-green-50 border border-green-200 rounded-md text-green-700 flex items-center">
-              <CheckCircle2 className="w-6 h-6 mr-3 text-green-500" /> Your message has been sent! We'll be in touch soon.
+              className="mt-6 p-4 bg-hueneu-success/10 border border-hueneu-success/30 rounded-md text-hueneu-success flex items-center">
+              <CheckCircle2 className="w-6 h-6 mr-3 text-hueneu-success" /> Your message has been sent! We&apos;ll be in touch soon.
             </motion.div>
           )}
           {submissionStatus === 'error' && (
             <motion.div 
               initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-              className="mt-6 p-4 bg-red-50 border border-red-200 rounded-md text-red-700 flex items-center">
-              <AlertCircle className="w-6 h-6 mr-3 text-red-500" /> Oops! Something went wrong. Please try again.
+              className="mt-6 p-4 bg-hueneu-error/10 border border-hueneu-error/30 rounded-md text-hueneu-error flex items-center">
+              <AlertCircle className="w-6 h-6 mr-3 text-hueneu-error" /> Oops! Something went wrong. Please try again.
             </motion.div>
           )}
 
@@ -149,12 +149,12 @@ const ContactSection = () => {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <p className="text-neutral-600 font-sans mb-3">Find more inspiration & behind the scenes:</p>
+          <p className="text-hueneu-secondary-text font-sans mb-3">Find more inspiration & behind the scenes:</p>
           <a 
             href="https://www.instagram.com/hueneu_/" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="inline-flex items-center text-hueneu-primary hover:text-hueneu-accent font-semibold transition-colors duration-300 group text-lg"
+            className="inline-flex items-center text-hueneu-primary hover:text-hueneu-accent font-semibold transition-colors duration-300 group text-lg no-underline hover:underline"
           >
             <Instagram className="w-6 h-6 mr-2" /> @hueneu_
           </a>

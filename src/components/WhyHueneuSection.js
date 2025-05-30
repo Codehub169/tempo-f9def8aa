@@ -24,14 +24,15 @@ const WhyHueneuSection = () => {
         </motion.h2>
 
         <motion.div 
-          className="space-y-8 text-neutral-700 font-sans text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose"
+          className="space-y-8 text-hueneu-dark-text font-sans text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={{ ...textVariants, transition: { ...textVariants.transition, delay: 0.2 } }}
         >
           <p>
-            We don’t just design—<span className="italic text-hueneu-accent font-medium">we decode stories</span>.
+            We don&apos;t just design; 
+            {' '}<span className="italic text-hueneu-accent font-medium">we decode stories</span>.
             We listen for the quiet narratives, the unspoken dreams, the subtle shifts that define you.
           </p>
           <p>
@@ -39,10 +40,10 @@ const WhyHueneuSection = () => {
           </p>
           <p>
             We believe in the power of <span className="border-b-2 border-hueneu-accent pb-1">calm</span>, the allure of <span className="border-b-2 border-hueneu-accent pb-1">mystery</span>, and the strength of perfect <span className="border-b-2 border-hueneu-accent pb-1">balance</span>.
-            Our designs don't shout; they invite you in, offering a space of warmth and unexpected delight.
+            Our designs don&apos;t shout; they invite you in, offering a space of warmth and unexpected delight.
           </p>
           <p>
-            If you're looking for more than just aesthetics, if you seek a design partner who will cherish your story as their own, you've found your place.
+            If you&apos;re looking for more than just aesthetics, if you seek a design partner who will cherish your story as their own, you&apos;ve found your place.
           </p>
         </motion.div>
       </div>

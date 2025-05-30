@@ -18,16 +18,20 @@ const HueneuStorySection = () => {
           Hue + Neu: Our Story
         </motion.h2>
         <motion.p 
-          className="font-sans text-lg md:text-xl text-neutral-700 mb-10 leading-relaxed md:leading-loose"
+          className="font-sans text-lg md:text-xl text-hueneu-dark-text mb-10 leading-relaxed md:leading-loose"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         >
           At hueneu, we believe in the magic that happens at the intersection of vibrant creativity and grounding calm. 
-          <span className="text-hueneu-accent font-semibold">“Hue”</span> represents the spectrum of color, emotion, and bold ideas we bring to every story. 
-          <span className="text-hueneu-primary font-semibold">“Neu”</span> signifies the neutrality, clarity, and intentional balance that underpins our designs. 
-          It's a dance between the evocative and the essential, crafting experiences that whisper loudly and linger softly.
+          <span className="text-hueneu-accent font-semibold">
+            Hue
+          </span> represents the spectrum of color, emotion, and bold ideas we bring to every story. 
+          <span className="text-hueneu-primary font-semibold">
+            Neu
+          </span> signifies the neutrality, clarity, and intentional balance that underpins our designs. 
+          It&apos;s a dance between the evocative and the essential, crafting experiences that whisper loudly and linger softly.
         </motion.p>
       </div>
       <WhoKnewElement />

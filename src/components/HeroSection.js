@@ -27,7 +27,7 @@ const HeroSection = () => {
       {/* Subtext: Uses sans-serif font (Inter), medium responsive text size, a slightly lighter neutral text color for hierarchy,
           max width for readability, with bottom margin. */}
       <p 
-        className="font-sans text-base sm:text-lg md:text-xl text-neutral-700 max-w-md lg:max-w-lg mx-auto mb-12 sm:mb-16"
+        className="font-sans text-base sm:text-lg md:text-xl text-hueneu-secondary-text max-w-md lg:max-w-lg mx-auto mb-12 sm:mb-16"
       >
         Designs that whisper loud stories.
       </p>
